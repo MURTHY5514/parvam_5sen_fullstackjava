@@ -1,6 +1,10 @@
 1. clone the repo
 git clone "url"
 
+
+2. git status
+to check the status
+
 2. git add . 
 to track the files
 
