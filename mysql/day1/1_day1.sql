@@ -13,6 +13,8 @@ create table students(
 insert into students(std_id, std_name, std_roll, std_email) 
 values(1, "mohan",101,'mohan@gmail.com');
 
+
+
 select * from students;
 select std_name, std_email from students;
 -- to add new column wiht default null 
