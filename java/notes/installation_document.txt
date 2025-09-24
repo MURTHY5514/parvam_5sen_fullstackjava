@@ -1,0 +1,125 @@
+# Eclipse IDE Installation and Running Java Programs – Step by Step Guide
+
+---
+
+## 1. System Requirements
+
+* Java JDK: Java Development Kit must be installed (JDK 17 or above) recomended 21.
+* Operating System: Windows, macOS, or Linux.
+* Memory: Minimum 2GB RAM (4GB recommended).
+* Disk Space: Minimum 300MB free.
+
+---
+
+## 2. Install Java JDK
+
+1. Go to the Oracle JDK download page: [https://www.oracle.com/java/technologies/javase-downloads.html](https://www.oracle.com/java/technologies/javase-downloads.html)
+2. Download the JDK installer for your OS.
+3. Run the installer and follow default options.
+4. Set JAVA\_HOME environment variable:
+
+**Windows:**
+
+* Right-click `This PC` → Properties → Advanced System Settings → Environment Variables → New
+
+  * Variable Name: `JAVA_HOME`
+  * Variable Value: Path to JDK (e.g., `C:\Program Files\Java\jdk-21`)
+* Add `%JAVA_HOME%\bin` to `Path` variable.
+
+**macOS/Linux:**
+
+```bash
+export JAVA_HOME=/path/to/jdk
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+5. Verify installation using command prompt or terminal:
+
+```bash
+java -version
+javac -version
+```
+
+---
+
+## 3. Download Eclipse IDE
+
+1. Visit Eclipse official website: [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
+2. Click Download x86\_64 (Eclipse IDE for Java Developers recommended).
+3. Wait for the download to complete.
+4. Extract the downloaded ZIP file to a preferred folder (e.g., `C:\Eclipse`).
+
+---
+
+## 4. Launch Eclipse IDE
+
+1. Open the Eclipse folder → Double-click `eclipse.exe`.
+2. Select a workspace folder where all your projects will be saved.
+3. Click Launch.
+
+---
+
+## 5. Create a New Java Project
+
+1. Go to File → New → Java Project.
+2. Enter Project Name (e.g., `HelloWorldProject`).
+3. Ensure the installed JDK is selected.
+4. Click Finish.
+
+---
+
+## 6. Create a Java Class
+
+1. Right-click on the src folder → New → Class.
+2. Enter Class Name (e.g., `HelloWorld`).
+3. Check public static void main(String\[] args) to create the main method automatically.
+4. Click Finish.
+
+---
+
+## 7. Write a Simple Java Program
+
+Inside `HelloWorld.java`, type:
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, Eclipse!");
+    }
+}
+```
+
+---
+
+## 8. Run the Program
+
+1. Right-click on `HelloWorld.java` → Run As → Java Application.
+2. The output appears in the Console window:
+
+```
+Hello, Eclipse!
+```
+
+---
+
+## 9. Tips for Eclipse Users
+
+* Project Explorer: Displays all projects and files.
+* Package Explorer: Displays classes inside packages.
+* Console: Displays program output.
+* Problems View: Displays compilation errors or warnings.
+* Keyboard Shortcuts:
+
+  * Ctrl + Shift + F → Auto-format code
+  * Ctrl + Space → Auto-complete
+  * F11 → Run last program
+
+---
+
+## 10. Summary
+
+1. Install JDK and set JAVA\_HOME.
+2. Download and launch Eclipse IDE.
+3. Create a Java Project.
+4. Create a Java Class and write code.
+5. Run the program and check output in Console.

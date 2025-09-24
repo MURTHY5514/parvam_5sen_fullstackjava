@@ -1,0 +1,192 @@
+Conditional Statements and Loops:
+=================================
+
+Conditional statements:
+=======================
+Basic one-way branch.
+	if (condition) {
+		// run when condition is true
+	}
+Example:
+	int x = 10;
+	if (x > 0) {
+		System.out.println("Positive");
+	}
+
+* If the block has a single statement you may omit braces, but always use braces in real code to avoid bugs.
+
+if-else:
+========
+Two-way branch.
+	if (condition) {
+		// true branch
+	} else {
+		// false branch
+	}
+
+Example:
+	int x = -5;
+	if (x >= 0) {
+		System.out.println("+ve");
+	} else {
+		System.out.println("Negative");
+	}
+
+if - else if - else (ladder):
+=============================
+For multiple mutually exclusive checks — evaluation stops at the first true branch.
+	if (a > b) {
+		// ...
+	} else if (a == b) {
+		// ...
+	} else {
+		// ...
+	}
+
+Example:
+	int score = 75;
+	if (score >= 90) {
+		System.out.println("A");
+	} else if (score >= 80) {
+		System.out.println("B");
+	} else if (score >= 70) {
+		System.out.println("C");
+	} else {
+		System.out.println("D or lower");
+	}
+
+Nested if:
+==========
+You can nest, but deep nesting harms readability. Prefer early returns/guards.
+	if (a>b) {
+		if (b>c) {
+			// ...
+		}
+	}
+
+Ternary operator (?:):
+======================
+Short conditional expression that returns a value:
+	String result = (x > 0) ? "pos" : "non-pos";
+ex:
+	boolean isEven = 12%2==0 ? true : false;
+
+switch:
+=======
+Classic switch syntax
+	switch (value) {
+		case 1:
+			// do something
+			break;   // prevent fall-through
+		case 2:
+		case 3:
+			// grouped cases
+			break;
+		default:
+			// fallback
+	}
+
+Important points:
+=================
+* Without break execution falls through to the next case — sometimes useful, often a bug.
+* default is optional but recommended.
+	String fruit = "apple";
+	switch (fruit) {
+		case "apple":
+			System.out.println("red or green");
+			break;
+		case "banana":
+			System.out.println("yellow");
+			break;
+		default:
+			System.out.println("unknown");
+	}
+
+* Modern switch expression (arrow form + yield)
+* Modern Java added a concise -> form and also allows using switch as an expression that returns a value:
+	int day = 5;
+	String desc = switch (day) {
+		case 1, 2, 3, 4, 5 -> "Weekday";
+		case 6, 7 -> "Weekend";
+		default -> "Invalid";
+	};
+
+When to use if vs switch:
+=========================
+* Use if/else for range checks and complex boolean logic (x > 10 && y < 5).
+* Use switch for many discrete equality checks against the same variable (cleaner, faster for many cases).
+
+Loops:
+======
+1. for (traditional)
+Structure: for (init; condition; inc/dec) { body }
+	for (int i = 0; i < 5; i++) {
+		System.out.println(i);
+	}
+
+2. Enhanced for (for-each)
+Used to iterate arrays and objects that implement Iterable.
+	int[] arr = {1,2,3};
+	for (int v : arr) {
+		System.out.println(v);
+	}
+
+Notes:
+1. Read-only for structure: you cannot change the collection’s size inside this loop.
+2. You get elements (copy of primitive or reference to object), so assigning to loop variable doesn’t change array element for primitives.
+
+3. while
+* Pre-test loop — condition checked before body.
+	int i = 0;
+	while (i < 5) {
+		System.out.println(i);
+		i++;
+	}
+* If condition false initially, body never runs.
+
+4. do-while
+* Post-test loop — body executes at least once.
+	int i = 0;
+	do {
+		System.out.println(i);
+		i++;
+	} while (i < 5);
+
+5. break and continue:
+======================
+* break — exits the nearest loop (or switch).
+* continue — skip remaining loop body, go to next iteration.
+
+	for (int i = 0; i < 10; i++) {
+		if (i == 5) break;      // exit loop entirely
+		if (i % 2 == 0) continue; // skip even numbers
+		System.out.println(i);  // prints 1,3
+	}
+
+
+6. Infinite loops
+Common forms:
+=============
+	while (true) { ... }
+	for (;;) { ... }
+
+* Use break or return to exit; ensure there’s a safe exit.
+
+Examples (putting it together)
+Example 1 — find first positive in array (use break)
+	int[] a = {-3, -2, 0, 5, 9};
+	int firstPos = -1;
+	for (int v : a) {
+		if (v > 0) { firstPos = v; break; }
+	}
+	System.out.println(firstPos); // prints 5
+
+Example 2 — switch expression returning a value
+	String grade = switch (score / 10) {
+		case 10, 9 -> "A";
+		case 8 -> "B";
+		case 7 -> "C";
+		default -> "F";
+	};
+
+

@@ -1,0 +1,113 @@
+Functions in java:
+==================
+
+1. What Is a Function/Method?
+* A method is a block of code that performs a specific task, can be reused, and may accept input parameters and return a value.
+* In Java, all functions must belong to a class (there are no standalone functions like in C).
+
+syntax:
+=======
+	modifier returnType methodName(parameterList) {
+		// method body
+		return value; // if returnType is not void
+	}
+
+* modifier – e.g., public, private, static.
+* returnType – Data type of the value returned (void for no return).
+* methodName – Identifier (e.g., calculateSum).
+* parameterList – Input values (optional).
+
+
+2. Example: Simple Method:
+==========================
+public class MyClass {
+    // Method definition
+    public static void greet() {
+        System.out.println("Hello, Java!");
+    }
+
+    public static void main(String[] args) {
+        greet(); // method call
+    }
+}
+
+3. Parameters and Return Values:
+================================
+public class Calculator {
+    // Method with parameters and return value
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        Calculator c = new Calculator();
+        int sum = c.add(5, 3);
+        System.out.println("Sum = " + sum);
+    }
+}
+
+4. Types of Methods:
+====================
+Type				Description									Example
+Instance Method		Belongs to an object; 
+					requires object creation.						c.add(2,3);
+Static Method		Belongs to the class; 
+					can be called without an object.				Math.sqrt(16);
+Accessor (Getter)	Returns the value of a field.					getName()
+Mutator (Setter)	Sets/updates the value of a field.				setName("John");
+Main Method			Entry point for any standalone 
+					Java program.						public static void main(...)
+					
+10. Access Modifiers
+Modifier				Visibility
+========				==========
+public					Accessible everywhere.
+protected				Accessible in the same package and subclasses.
+default	(no modifier) 	Accessible within package.
+private					Accessible only within the class.
+
+Full Example:
+=============
+public class FunctionsDemo {
+    // Static method
+    public static int square(int x) {
+        return x * x;
+    }
+
+    // Instance method with overloading
+    public void greet() {
+        System.out.println("Hello!");
+    }
+
+    public void greet(String name) {
+        System.out.println("Hello, " + name + "!");
+    }
+
+    // Varargs method
+    public static int sum(int... nums) {
+        int total = 0;
+        for (int n : nums) total += n;
+        return total;
+    }
+
+    public static void main(String[] args) {
+        // Static method call
+        System.out.println("Square: " + square(5));
+
+        // Instance methods
+        FunctionsDemo obj = new FunctionsDemo();
+        obj.greet();
+        obj.greet("Murthy");
+
+        // Varargs
+        System.out.println("Sum: " + sum(2, 4, 6));
+
+        // Recursion
+        System.out.println("Factorial of 5: " + factorial(5));
+    }
+
+    // Recursive method
+    public static int factorial(int n) {
+        return (n == 0) ? 1 : n * factorial(n - 1);
+    }
+}

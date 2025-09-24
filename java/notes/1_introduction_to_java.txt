@@ -1,0 +1,111 @@
+Introduction to java:
+=====================
+* Java is a high-level, object-oriented, object oriented programming language designed to be portable, secure, and easy to use.
+* It was created by James Gosling and his team at Sun Microsystems in 1995. Today, Java is maintained by Oracle Corporation.
+
+Java is widely used for:
+========================
+1. Desktop applications
+2. Web applications
+3. Enterprise software
+4. Mobile apps (especially Android)
+
+Features of Java
+================
+Java’s design principles make it one of the most popular languages. Key features:
+
+* Simple – Easy to learn, similar syntax to C/C++.
+* Object-Oriented – Uses classes, objects, inheritance, polymorphism, etc.
+* Platform Independent – “Write Once, Run Anywhere” (WORA).
+* Secure – No explicit pointers; bytecode verification prevents malicious code.
+* Robust – Strong memory management and exception handling.
+* Multithreaded – Supports concurrent execution of tasks.
+* High Performance – Just-In-Time (JIT) compiler improves speed.
+* Dynamic & Distributed – Supports dynamic linking and networking features.
+
+How Java Works:
+===============
+1. Source Code (.java) → compiled by the Java Compiler (javac).
+2. Compiler generates Bytecode (.class) – platform-independent instructions.
+3. JVM (Java Virtual Machine) reads the bytecode and executes it on the underlying OS.
+4. JRE (Java Runtime Environment) provides libraries and JVM to run Java apps.
+5. JDK (Java Development Kit) includes JRE + development tools (compiler, debugger).
+
+Diagram (Text Representation):
+==============================
+	Your Code (.java)   FirstProgram.java
+			↓  [javac]
+	Bytecode (.class)  FirstProgram.class
+		   ↓  [JVM]
+	Machine Code (OS Specific)
+	
+Java Editions:
+==============
+Edition						  Description						         Examples of Use
+=======						  ===========                                ===============
+Java SE(Standard Edition)	  Core features (OOP,libraries,JVM)	         Desktop apps, basic programs
+Java EE (Enterprise Edition)  Adds APIs for web and enterprise apps	     Servlets, JSP, EJB
+Java ME (Micro Edition)	      For embedded and mobile devices	         IoT, feature phones
+Jakarta EE (New name for Java EE)	Cloud and enterprise solutions	     Enterprise web apps
+JavaFX	Modern GUI framework	    Rich client applications
+
+
+Basic Java Program Example:
+===========================
+HelloWorld.java:
+================
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, Java!");
+    }
+}
+
+How it works:
+=============
+* public class HelloWorld – Defines a class named HelloWorld.
+* main(String[] args) – Entry point for the program.
+* System.out.println – Prints text to the console.
+
+Steps to Run in cmd:
+====================
+* Save as HelloWorld.java.
+* Compile: javac HelloWorld.java.
+* Run: java HelloWorld.
+
+Steps to Run in Eclipse:
+========================
+1. Install and Launch Eclipse
+* Download Eclipse IDE for Java Developers from eclipse.org
+* Install and open Eclipse.
+* When prompted, select a workspace folder (this is where your projects will be saved).
+
+2. Create a New Java Project
+* Go to File → New → Java Project.
+* Enter a Project Name (e.g., HelloWorldProject).
+* Leave the default Java Runtime Environment (JRE) and settings.
+* Click Finish.
+
+3. Create a Java Class
+* In the Package Explorer (left panel), expand your project.
+* Right-click src → New → Class.
+* Enter a Package Name (e.g., com.example). (Optional but recommended)
+* Enter the Class Name: HelloWorld.
+* Check the box public static void main(String[] args) to generate a main method automatically.
+* Click Finish.
+
+4. Write the Program
+* Replace the generated code with:
+package com.example;
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, Java!");
+    }
+}
+
+5. Save and Run the Program
+* Save your file (Ctrl + S).
+* Click the Run button ▶️ on the toolbar
+– OR – Right-click anywhere in the editor → Run As → Java Application.
+* Check the Console view at the bottom for the output:
+	Hello, Java!

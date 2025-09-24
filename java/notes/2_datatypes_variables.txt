@@ -1,0 +1,156 @@
+data types and variables:
+=========================
+1. What Are Variables:
+======================
+* A variable in Java is a named memory location used to store data.
+It has three components:
+	Name – Identifier for the variable (e.g., age).
+	Data type – Specifies the kind of data stored (e.g., int).
+	Value – The actual data stored.
+Example:
+	int age = 25;
+
+* int → data type
+* age → variable name
+* 25 → value
+
+
+2. Declaring and Initializing Variables:
+========================================
+* Declaration: int number;
+* Initialization: number = 10;
+* Combined: int number = 10;
+
+You can declare multiple variables of the same type:
+	int x = 5, y = 10, z = 15;
+
+3. Java Data Types:
+===================
+Java is strongly typed, meaning every variable must have a declared type.
+
+Data types are divided into Primitive and Non-Primitive:
+========================================================
+	A. Primitive Data Types
+	B. Non-Primitive Data Types (Reference Types)
+
+A. Primitive Data Types:
+========================
+Type		Size (bits)	Default 		Value				Example	Description
+====		==========  =======         ======              ===================
+byte		8				0			byte b = 100;		Small integers (-128 to 127).
+short		16				0			short s = 200;		Larger than byte (-32,768 to 32,767).
+int			32				0			int i = 500;		Common integer type.
+long		64				0L			long l = 1000L;		Very large integers.
+float		32				0.0f		float f = 5.75f;	Single-precision decimal values.
+double		64				0.0d		double d = 19.99;	Double-precision decimals.
+char		16				'\u0000'	char c = 'A';		Single character (Unicode).
+boolean		1 (logical)		false		boolean b = true;	True/False values.
+
+B. Non-Primitive Data Types (Reference Types):
+==============================================
+Type			Description										Example
+====            ===========										=======
+String			Sequence of characters.							String name = "Murthy";
+Arrays			Collection of fixed-size, same-type values.		int[] numbers = {1,2,3};
+Classes			User-defined objects.							class Car {}
+Interfaces		Contract for implementing classes.				interface Vehicle {}
+
+
+4. Variable Types in Java:
+==========================
+Type	        Scope & Use	                                   		Example
+====			===========											=======
+Local	        Declared inside a method; accessible only 
+				within that method.	   								void show(){ int x=10; }
+Instance		Declared in a class but outside methods; 
+				each object gets its own copy.						class Test { int age; }
+Static			Shared among all objects of a class. 
+				Declared using static.								static int count = 0;
+				
+
+5. Type Casting:
+================
+	1. Implicit (Widening) Casting:
+	   Automatically converts smaller type to a larger type:
+	   
+	   int num = 100;
+	   double d = num;  // int to double
+
+	2. Explicit (Narrowing) Casting
+	   Manually converts larger type to smaller type:
+	   
+	   double pi = 3.14;
+	   int x = (int) pi;  // double to int
+  
+6. Constants:
+=============
+Use the final keyword to make a variable constant:
+	final double PI = 3.14159;
+
+
+7. Var Keyword (Java 10+):
+==========================
+Java can infer the type automatically:
+	var message = "Hello"; // inferred as String
+	var num = 50;          // inferred as int
+
+Note: var works only for local variables with an initializer.
+
+8. Example Program:
+===================
+	public class DataTypesExample {
+		static int staticVar = 100; // Static variable
+		int instanceVar = 50;       // Instance variable
+
+		public void display() {
+			int localVar = 25;      // Local variable
+			System.out.println("Static: " + staticVar);
+			System.out.println("Instance: " + instanceVar);
+			System.out.println("Local: " + localVar);
+		}
+
+		public static void main(String[] args) {
+			DataTypesExample obj = new DataTypesExample();
+			obj.display();
+
+			double pi = 3.14;
+			int approxPi = (int) pi;  // Explicit casting
+			System.out.println("Approximate Pi: " + approxPi);
+		}
+	}
+
+
+
+
+🧑‍🎓 Problem 1: Student Details Input and Display
+Problem Statement:
+Write a Java program that:
+
+Takes the following details for a student from the user:
+
+Student ID (integer)
+
+Name (string)
+
+Age (integer)
+
+Grade (character)
+
+Prints the details in a formatted way.
+
+👨‍💼 Problem 2: Employee Details Input and Display
+
+Problem Statement:
+Write a Java program that:
+
+Accepts the following details for an employee from the user:
+
+Employee ID (integer)
+
+Name (string)
+
+Department (string)
+
+Salary (double)
+
+Displays the employee details clearly formatted.

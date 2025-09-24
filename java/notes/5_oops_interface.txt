@@ -1,0 +1,175 @@
+Object-Oriented Programming (OOP) in Java:
+==========================================
+* Java is not a pure object-oriented language (because of primitives) where almost everything revolves around objects and classes. 
+* OOP organizes code into reusable components that model real-world entities.
+
+Core OOP Concepts in Java:
+==========================
+1. Class:
+=========
+* class will represent the state and behavior of an object
+	state / property  --> variables
+	behavior / action --> functions
+* class will take memory or not? ---> NO, but object will take a memory
+
+Example:
+========
+	class Car {
+		String brand;
+		int year;
+
+		void display() {
+			System.out.println(brand + " - " + year);
+		}
+	}
+
+2. Object:
+==========
+* Object is a implementation of class(state and action)
+* An object is an instance of a class.
+* It represents a real-world entity with state (fields) and behavior (methods).
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car();     // Object creation
+        car1.brand = "Toyota";
+        car1.year = 2022;
+        car1.display();
+    }
+}
+
+3. Encapsulation:
+=================
+* Wrapping data/property and methods/actions together in a class.
+* Achieved using private fields and public getter/setter methods.
+ex:
+===
+	class Person {
+		private String name;
+
+		public void setName(String n) {  // Setter
+			name = n;
+		}
+
+		public String getName() {       // Getter
+			return name;
+		}
+	}
+
+4. Inheritance:
+===============
+* Allows one class (child) to inherit fields and methods from another class (parent).
+* Promotes code reuse.
+* Uses the extends keyword.
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog barks.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat();  // Inherited method
+        d.bark();
+    }
+}
+
+5. Polymorphism:
+================
+* Compile-time (Method Overloading): Same method name, different parameter lists.
+* Runtime (Method Overriding): Subclass provides its own version of a parent method.
+Example (Overloading):
+======================
+	class Calculator {
+		int add(int a, int b) { return a + b; }
+		double add(double a, double b) { return a + b; }
+	}
+
+Example (Overriding):
+	class Animal {
+		void sound() { System.out.println("Animal makes a sound"); }
+	}
+
+	class Cat extends Animal {
+		@Override
+		void sound() { System.out.println("Cat meows"); }
+	}
+
+6. Abstraction:
+===============
+* Hiding implementation details and showing only the essential features.
+* Achieved using abstract classes or interfaces.
+
+Example (Abstract Class):
+=========================
+abstract class Shape {
+    abstract void draw();   // Abstract method
+}
+
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing Circle");
+    }
+}
+
+Interface in Java:
+==================
+* An interface is a completely abstract type used to define a contract that classes can implement.
+*Declares constants and abstract methods (Java 8+ allows default and static methods too).
+* Supports multiple inheritance (a class can implement multiple interfaces).
+
+Example: Interface Implementation:
+==================================
+interface Vehicle {
+    void start();
+    void stop();
+}
+
+class Car implements Vehicle {
+    public void start() {
+        System.out.println("Car starting...");
+    }
+    public void stop() {
+        System.out.println("Car stopping...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle v = new Car(); // Upcasting
+        v.start();
+        v.stop();
+    }
+}
+
+Multiple Interfaces Example:
+============================
+interface Camera {
+    void takePhoto();
+}
+interface MusicPlayer {
+    void playMusic();
+}
+
+class Smartphone implements Camera, MusicPlayer {
+    public void takePhoto() {
+        System.out.println("Taking a photo...");
+    }
+    public void playMusic() {
+        System.out.println("Playing music...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Smartphone phone = new Smartphone();
+        phone.takePhoto();
+        phone.playMusic();
+    }
+}

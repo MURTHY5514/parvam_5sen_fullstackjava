@@ -1,0 +1,85 @@
+What is Exception Handling in Java?
+===================================
+* Exception: An event that disrupts the normal flow of a program (e.g., dividing by zero, invalid file access).
+* Exception Handling: A mechanism to gracefully handle runtime errors so the program doesn’t crash.
+* Java uses the try-catch-finally construct for handling exceptions.
+
+Basic Syntax:
+=============
+try {
+    // Code that might throw an exception
+} catch (ExceptionType e) {
+    // Code to handle the exception
+} finally {
+    // Code that will always execute (optional)
+}
+
+ex: Handling ArithmeticException:
+=================================
+public class ExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int a = 10, b = 0;
+            int result = a / b; // Throws ArithmeticException
+            System.out.println(result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero is not allowed.");
+        } finally {
+            System.out.println("This block always executes.");
+        }
+    }
+}
+
+Catching Multiple Exceptions:
+=============================
+try {
+    int[] arr = {1,2,3};
+    System.out.println(arr[5]); // ArrayIndexOutOfBoundsException
+} catch (ArithmeticException e) {
+    System.out.println("Arithmetic error occurred.");
+} catch (ArrayIndexOutOfBoundsException e) {
+    System.out.println("Array index is invalid.");
+} catch (Exception e) {
+    System.out.println("Some other exception occurred: " + e);
+}
+
+Using Multi-Catch Block (Java 7+):
+==================================
+try {
+    String str = null;
+    System.out.println(str.length()); // NullPointerException
+} catch (ArithmeticException | NullPointerException e) {
+    System.out.println("Caught: " + e);
+}
+
+The finally Block:
+==================
+* Executes always (even if an exception is not thrown).
+* Often used to close resources like files or database connections.
+ex:
+===
+try {
+    int num = Integer.parseInt("123");
+    System.out.println("Number: " + num);
+} catch (NumberFormatException e) {
+    System.out.println("Invalid number format.");
+} finally {
+    System.out.println("End of program.");
+}
+
+
+Throwing Exceptions Manually (throw):
+=====================================
+public class ThrowDemo {
+    static void validateAge(int age) {
+        if (age < 18) {
+            throw new ArithmeticException("Not eligible to vote");
+        } else {
+            System.out.println("Eligible to vote");
+        }
+    }
+
+    public static void main(String[] args) {
+        validateAge(15);
+    }
+}
