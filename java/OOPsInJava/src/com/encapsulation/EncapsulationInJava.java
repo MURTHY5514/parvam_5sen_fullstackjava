@@ -1,5 +1,7 @@
 package com.encapsulation;
 
+import com.abstraction.Vehicle;
+
 class Student{
 	//instance variables
 	/*
@@ -50,5 +52,6 @@ public class EncapsulationInJava {
 		s1.setRoll(102);
 		s1.setId(1001);
 		System.out.println(s1);//toString()
+		Vehicle.display();
 	}
 }

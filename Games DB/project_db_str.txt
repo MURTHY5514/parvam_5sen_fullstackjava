@@ -1,0 +1,69 @@
+====================================================
+TABLE: members  (Stores member details and balance)
+====================================================
+| Column     | Data Type           | Key          | Description                          |
+|------------|--------------------|--------------|--------------------------------------|
+| member_id  | BIGINT AUTO_INCREMENT| PRIMARY KEY | Unique ID for each member            |
+| name       | VARCHAR(100)       |              | Member full name                     |
+| email      | VARCHAR(100)       | UNIQUE       | Member email (Alternate Key)         |
+| phone      | VARCHAR(20)        | UNIQUE       | Member phone (Alternate Key)         |
+| join_date  | DATE               |              | Date of joining                      |
+| balance    | DECIMAL(10,2)      |              | Current wallet balance               |
+| status     | ENUM(ACTIVE,INACTIVE)|             | Membership status    
+
+
+----------------------------------------------------
+TABLE: games  (Stores available games)
+----------------------------------------------------
+| Column        | Data Type          | Key          | Description                          |
+|---------------|------------------|---------------|--------------------------------------|
+| game_id       | BIGINT AUTO_INCREMENT| PRIMARY KEY | Unique ID for each game              |
+| game_name     | VARCHAR(100)      |               | Name of the game                     |
+| cost_per_hour | DECIMAL(10,2)     |               | Cost per hour of gameplay            |
+| status        | ENUM(AVAILABLE,UNAVAILABLE)|       | Game availability status 
+
+
+----------------------------------------------------
+TABLE: recharges  (Tracks recharge operations)
+----------------------------------------------------
+| Column        | Data Type          | Key          | Description                          |
+|----------------|-----------------|---------------|--------------------------------------|
+| recharge_id    | BIGINT AUTO_INCREMENT| PRIMARY KEY | Unique ID for each recharge          |
+| member_id      | BIGINT           | FOREIGN KEY   | References members.member_id         |
+| amount         | DECIMAL(10,2)    |               | Recharge amount                      |
+| recharge_date  | TIMESTAMP        |               | Date and time of recharge 
+
+Relationship Type:  
+- **One-to-Many** → **Members.member_id → Recharges.member_id**  
+  (One member can have many recharge records)
+
+
+----------------------------------------------------
+TABLE: transactions  (Tracks game sessions)
+----------------------------------------------------
+| Column          | Data Type         | Key            | Description                          |
+|-----------------|-----------------|----------------|--------------------------------------|
+| transaction_id  | BIGINT AUTO_INCREMENT| PRIMARY KEY  | Unique ID for each transaction       |
+| member_id       | BIGINT           | FOREIGN KEY    | References members.member_id         |
+| game_id         | BIGINT           | FOREIGN KEY    | References games.game_id             |
+| play_time_hrs   | DECIMAL(5,2)     |                | Play time in hours                   |
+| cost            | DECIMAL(10,2)    |                | Cost charged for the play session    |
+| transaction_date| TIMESTAMP        |                | Date & time of transaction |
+
+Relationship Types:  
+- **One-to-Many** → **Members.member_id → Transactions.member_id**  
+  (One member can have many gameplay transactions)  
+- **One-to-Many** → **Games.game_id → Transactions.game_id**  
+  (One game can be part of many transactions)  
+
+
+----------------------------------------------------
+TABLE: daily_collections  (Daily financial summaries)
+----------------------------------------------------
+| Column          | Data Type         | Key          | Description                          |
+|-----------------|-----------------|---------------|--------------------------------------|
+| collection_id    | BIGINT AUTO_INCREMENT| PRIMARY KEY| Unique ID for each daily summary     |
+| collection_date  | DATE             |               | Date of collection                   |
+| total_recharges  | DECIMAL(10,2)    |               | Total amount recharged on that date  |
+| total_spent      | DECIMAL(10,2)    |               | Total spent on games that date       |
+| net_collection   | DECIMAL(10,2)    |               | Net collection for the day           |
