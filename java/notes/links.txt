@@ -1,0 +1,9 @@
+Collection framework : https://www.freecodecamp.org/news/java-collections-framework-reference-guide/
+
+Wrapper classes: https://dotnettutorials.net/lesson/wrapper-classes-in-java/
+
+Exception handling: https://www.scaler.com/topics/java/exception-handling-in-java/
+
+MVC:
+====
+https://www.researchgate.net/profile/S-R-Swamy/publication/341151097/figure/fig2/AS:887752266616836@1588668042046/Fig-2-Architecture-flow-of-spring-boot-Applications-Spring-boot-uses-all-the-features.ppm
