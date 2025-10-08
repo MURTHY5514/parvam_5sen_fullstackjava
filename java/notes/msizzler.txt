@@ -1,0 +1,33 @@
+paid date, also delete, also quantity decreasing provision or increase, joining date , aadhar no , pan no, dl no.
+
+
+filter functionality
+
+
+cstomer type - retailer, restaurant
+
+
+or 
+
+
+price per piece - price_per_piece-restaurant,price_per_piece-retailer
+
+while creating customer give provision to choose customer type.
+
+while placing order auto select the price based on customer type.
+
+
+
+for delivery person location, address, payment details - due amount
+
+order list -> select -> product details -> address -> location -> due amount -> capture amount -> while changing status to delivery then capture the location auto capture.
+
+
+while order delivery need to complete the previous order need to complete the full amount  else no need to show the delivery status should disable.
+
+
+
+
+1. no need for owner details.
+2. vision, mission, address, contact info, email, phone no, whats app link, and social media links.
+3. location, address.

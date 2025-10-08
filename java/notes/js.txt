@@ -1,0 +1,20 @@
+
+
+node --version -> to check the version.
+npm i -g bun -> to install bun in globally.
+bun create vite -> to create react project
+bun run dev -> to run the react project in development mode.
+
+jsx -> java script and xml(JS+HTML).
+
+component -> it is a function that will return html or jsx.
+we can reuse this component.`
+
+two ways:
+=========
+1. function decleration
+	a. named import - rfc
+	b. default import
+2. arrow function
+	a. named import - rfac
+	b. default
